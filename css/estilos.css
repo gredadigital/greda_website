@@ -1,0 +1,117 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background: #000;
+
+}
+
+html,body{
+ }
+.wrapper{
+    position:relative;
+}
+
+.background-layer{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -2;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 5669px;
+    pointer-events: none;
+    background: url("../images/bg.jpg");
+    background-size: 100% auto;
+
+
+
+}
+.content{
+    position: relative;
+    z-index: 0;
+    section{
+    }
+
+
+
+}
+.home{
+    background: url("../images/bosque.webp");
+    background-size: cover;
+    min-height: 100vh;
+
+}
+.angel-rubi {
+    position: relative;
+    height: 3206px;
+
+    .algas_largas {
+        width: 1530px;
+        height: 1471px;
+        background: url("../images/algas_largas.png");
+       position: absolute;
+        top: 1370px;
+        left: 50%;
+        transform: translate(-50%, 0);
+        z-index: 2;
+    }
+
+    .algas_bg {
+        width: 1655px;
+        height: 1601px;
+        background: url("../images/algas_bg.png");
+        background-repeat: no-repeat;
+        position: absolute;
+        top: 1000px;
+        left: 50%;
+        transform: translate(-50%, 0);
+        z-index: 1;
+    }
+
+    .estatua {
+        width: 1016px;
+        height: 3206px;
+        background: url("../images/angel_rubi.png");
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translate(-50%, 0);
+        z-index: 5;
+
+    }
+}
+.toro{
+    position: relative;
+    height: 1500px;
+    .toro_milojos{
+        width: 1000px;
+        height: 1865px;
+        background: url("../images/toro.png");
+        position: absolute;
+        top: -240px;
+        left: 50%;
+        transform: translate(-50%, 0);
+        z-index: 4;
+    }
+}
+.bahamut{
+    position: relative;
+    height: 1829px;
+    .gran_bahamut{
+        width: 1684px;
+        height: 1829px;
+        background: url("../images/bahamut.png");
+        position: absolute;
+        top: -380px;
+        left: 50%;
+        transform: translate(-50%, 0);
+        z-index: 2;
+    }
+}
+
+
+
