@@ -1,11 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Catamaran:wght@100..900&display=swap');
+
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+
+
 body{
     background: #000;
-
+    font-family: "Catamaran", sans-serif;
+    color: white;
 }
 
 html,body{
@@ -72,7 +77,6 @@ html,body{
     overflow: hidden;
     /* máscara */
     z-index:10;
-
     clip-path: circle(var(--maskR) at 50% var(--maskY));
     background: url("../images/bosque.webp") center/cover no-repeat;
     h1{
@@ -86,6 +90,40 @@ html,body{
         transform: translate(-50%,0);
         text-indent: -9999px;
         animation: entra_logo 1s ease-out;
+    }
+    .txt {
+        position: absolute;
+        bottom: 200px;
+        left: 10%;
+        width: 50%;
+        h2{
+            font-size: 40px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 110%; /* 44px */
+            margin-bottom: 0.6em;
+        }
+        h3{
+            font-size: 32px;
+            font-style: normal;
+            font-weight: 300;
+            line-height: 127%; /* 40.64px */
+            margin-bottom: 2em;
+        }
+        button{
+            display: inline-flex;
+            padding: 19px 46px;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            border-radius: 6px;
+            background: #000;
+            color: #00FFF2;
+            font-size: 24px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 110%; /* 26.4px */
+        }
     }
 }
 
@@ -144,6 +182,68 @@ html,body{
         transform: translate(-50%, 0);
         z-index: 5;
 
+    }
+    .ojos_entrecerrados{
+        position: absolute;
+        width: 90px;
+        height: 18px;
+        background: url("../images/ojos_entrecerrados.png");
+        top:651px;
+        left: 49.8%;
+        transform: translate(-50%, 0);
+        z-index: 60;
+    }
+    .ojos_abiertos{
+        position: absolute;
+        width: 90px;
+        height: 18px;
+        background: url("../images/ojos_abiertos.png");
+        top:651px;
+        left: 49.8%;
+        transform: translate(-50%, 0);
+        z-index: 61;
+    }
+    }
+    .burbujas1{
+        width: 300px;
+        height: 1200px;
+        background: url("../images/burbujas1.png");
+        background-size: 100% auto;
+        position: absolute;
+        top: 1600px;
+        left: 30%;
+        z-index: 50;
+
+    }
+    .burbujas2{
+        width: 100px;
+        height: 480px;
+        background: url("../images/burbujas2.png");
+        background-size: 100% auto;
+        position: absolute;
+        top: 2400px;
+        left: 30%;
+        z-index: 52;
+    }
+    .burbujas3{
+        width: 300px;
+        height: 1580px;
+        background: url("../images/burbujas3.png");
+        background-size: 100% auto;
+        position: absolute;
+        top: 1200px;
+        right: 30%;
+        z-index: 50;
+    }
+    .burbujas4{
+        width: 100px;
+        height: 480px;
+        background: url("../images/burbujas2.png");
+        background-size: 100% auto;
+        position: absolute;
+        top: 2400px;
+        right: 30%;
+        z-index: 52;
     }
 }
 .toro{
