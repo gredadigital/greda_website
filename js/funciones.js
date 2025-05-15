@@ -1,12 +1,15 @@
+// js/funciones.js
+
 document.addEventListener('DOMContentLoaded', () => {
     const preloader = document.querySelector('.preloader');
     const preloaderText = document.querySelector('.preloader-text');
     const wrapper = document.querySelector('.wrapper');
 
-    // Bloquear scroll hasta que acabe precarga
+    // Bloquear scroll hasta que acabe la precarga
     document.body.style.overflow = 'hidden';
     wrapper.style.visibility = 'hidden';
 
+    // Lista de imágenes a precargar
     const images = [
         '../images/bg.jpg',
         '../images/bosque.webp',
@@ -14,11 +17,12 @@ document.addEventListener('DOMContentLoaded', () => {
         '../images/algas_bg.png',
         '../images/angel_rubi.png',
         '../images/toro.png',
-        '../images/bahamut.png'
+        '../images/bahamut.png',
     ];
     let loadedCount = 0;
     const totalCount = images.length;
 
+    // Actualiza texto de progreso
     function updateProgress() {
         const percentage = Math.round((loadedCount / totalCount) * 100);
         preloaderText.textContent = `cargando ${percentage}%...`;
@@ -26,6 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     updateProgress();
 
+    // Precarga imágenes
     images.forEach(src => {
         const img = new Image();
         img.src = src;
@@ -45,14 +50,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function initParallax() {
     gsap.registerPlugin(ScrollTrigger);
+
+    // Sección home: animar máscara y opacidad
     const home = document.querySelector('.home');
     const oval = document.querySelector('.angel-rubi .ovalo');
-
     const initialR = Math.hypot(window.innerWidth, window.innerHeight);
     const finalR = window.innerHeight * 0.2;
     const initialY = window.innerHeight / 2;
 
-    // Mask animation on .home
     ScrollTrigger.create({
         trigger: home,
         start: 'top top',
@@ -68,17 +73,17 @@ function initParallax() {
             const y = initialY + (finalY - initialY) * progress;
             home.style.setProperty('--maskR', `${r}px`);
             home.style.setProperty('--maskY', `${y}px`);
-            // Mantener opacidad hasta mitad, luego fade out
+            // Opacidad: permanece plena hasta mitad, luego hace fade out
             const fadeStart = 0.5;
-            let opacity = progress < fadeStart ? 1 : 1 - ((progress - fadeStart) / (1 - fadeStart));
-            home.style.opacity = `${opacity}`;
+            const opacity = progress < fadeStart ? 1 : 1 - ((progress - fadeStart) / (1 - fadeStart));
+            home.style.opacity = opacity;
         }
     });
 
-    // Parallax layers animation
+    // Parallax para capas con data-speed
     const totalScroll = document.documentElement.scrollHeight - window.innerHeight;
     gsap.utils.toArray('.parallax-layer').forEach(layer => {
-        const speed = parseFloat(layer.dataset.speed);
+        const speed = parseFloat(layer.dataset.speed) || 0;
         gsap.to(layer, {
             y: -totalScroll * speed,
             ease: 'none',
@@ -90,4 +95,32 @@ function initParallax() {
             }
         });
     });
+
+    // Animación de ojos en sección angel-rubi
+    const angelSection = document.querySelector('.angel-rubi');
+    const entre = document.querySelector('.angel-rubi .ojos_entrecerrados');
+    const abi = document.querySelector('.angel-rubi .ojos_abiertos');
+    if (angelSection && entre && abi) {
+        entre.style.opacity = '0';
+        abi.style.opacity = '0';
+        ScrollTrigger.create({
+            trigger: angelSection,
+            start: 'top top',
+            end: 'bottom top',
+            scrub: true,
+            onUpdate: self => {
+                const p = self.progress;
+                if (p < 0.01) {
+                    entre.style.opacity = '0';
+                    abi.style.opacity = '0';
+                } else if (p < 0.06) {
+                    entre.style.opacity = '1';
+                    abi.style.opacity = '0';
+                } else {
+                    entre.style.opacity = '0';
+                    abi.style.opacity = '1';
+                }
+            }
+        });
+    }
 }

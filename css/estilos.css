@@ -192,6 +192,9 @@ html,body{
         left: 49.8%;
         transform: translate(-50%, 0);
         z-index: 60;
+        opacity: 0;                      /* start hidden */
+        transition: opacity 0.3s ease;   /* para un fade suave */
+        pointer-events: none;
     }
     .ojos_abiertos{
         position: absolute;
@@ -202,6 +205,9 @@ html,body{
         left: 49.8%;
         transform: translate(-50%, 0);
         z-index: 61;
+        opacity: 0;                      /* start hidden */
+        transition: opacity 0.3s ease;   /* para un fade suave */
+        pointer-events: none;
     }
     }
     .burbujas1{
