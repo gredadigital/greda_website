@@ -5,6 +5,10 @@
     padding: 0;
     box-sizing: border-box;
 }
+:root {
+    --maskR: 100vh;
+    --maskY: 50vh;
+}
 
 
 body{
@@ -209,7 +213,7 @@ html,body{
         transition: opacity 0.3s ease;   /* para un fade suave */
         pointer-events: none;
     }
-    }
+
     .burbujas1{
         width: 300px;
         height: 1200px;
