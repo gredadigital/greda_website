@@ -123,4 +123,48 @@ function initParallax() {
             }
         });
     }
+    // Slider de imágenes                                  // 01
+    const slider = document.querySelector('.angel-rubi .image-slider'); // 02
+    let scrollDir = 0, rafId;                                // 03
+
+    function step() {                                        // 04
+        slider.scrollLeft += scrollDir * 2;                    // 05
+        rafId = requestAnimationFrame(step);                   // 06
+    }
+
+    function startScroll(dir) {                              // 07
+        if (scrollDir === dir) return;                         // 08
+        scrollDir = dir;                                       // 09
+        cancelAnimationFrame(rafId);                           // 10
+        step();                                                // 11
+    }
+
+    function stopScroll() {                                  // 12
+        scrollDir = 0;                                         // 13
+        cancelAnimationFrame(rafId);                           // 14
+    }
+
+// Control por posición del ratón                       // 15
+    slider.addEventListener('mousemove', e => {              // 16
+        const rect = slider.getBoundingClientRect();           // 17
+        const x = e.clientX - rect.left;                       // 18
+        if (x > rect.width - 100) startScroll(1);              // 19
+        else if (x < 100)      startScroll(-1);                // 20
+        else                   stopScroll();                   // 21
+    });
+
+    slider.addEventListener('mouseleave', stopScroll);       // 22
+
+// Detención y resaltado sobre cada imagen               // 23
+    slider.querySelectorAll('.slider-item').forEach(item => { // 24
+        item.addEventListener('mouseenter', () => {             // 25
+            stopScroll();                                        // 26
+            item.classList.add('active');                        // 27
+        });
+        item.addEventListener('mouseleave', () => {             // 28
+            item.classList.remove('active');                     // 29
+            // al salir, el slider volverá a moverse si el ratón sigue en borde
+        });
+    });                                                     // 30
+
 }

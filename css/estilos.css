@@ -214,6 +214,35 @@ html,body{
         pointer-events: none;
     }
 
+    .image-slider {                       /* 01 */
+        position: absolute;
+        width: 100%;
+        overflow: hidden;
+        top:1200px;
+        z-index:51;
+    }
+
+    .slider-track {                       /* 02 */
+        display: flex;
+        /* opción: si usas transform más adelante, deja transition aquí */
+    }
+
+    .slider-item {                        /* 03 */
+        flex: 0 0 auto;
+        width: 119px;
+        height: 90px;
+        margin-right: 8px;
+        opacity: 0.8;
+        transition: opacity 0.3s ease, transform 0.3s ease;
+        cursor: pointer;
+    }
+
+    .slider-item.active {                 /* 04 */
+        opacity: 1;
+        transform: scale(1.1);
+        z-index: 10;
+    }
+
     .burbujas1{
         width: 300px;
         height: 1200px;
