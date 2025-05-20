@@ -14,6 +14,8 @@
     <!-- GSAP + ScrollTrigger -->
     <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/Flip.min.js"></script>
+
     <script src="js/funciones.js" defer></script>
 </head>
 <body>
@@ -21,6 +23,17 @@
     <img src="images/preloader2.gif" alt="Cargando...">
     <p class="preloader-text">Cargando 0%...</p>
 
+</div>
+<!-- justo dentro de <body>, junto a .wrapper -->
+<div id="project-detail" class="project-detail hidden">
+    <button class="detail-close">×</button>
+    <h2 class="detail-title"></h2>
+    <div class="detail-body">
+        <p class="detail-description"></p>
+        <div class="detail-images">
+            <!-- aquí iremos inyectando <img src="…"> según el JSON -->
+        </div>
+    </div>
 </div>
 
 <div class="wrapper">
@@ -40,30 +53,30 @@
         <section class="angel-rubi" id="angel">
             <div class="image-slider"> <!-- 01 -->
                 <div class="slider-track"> <!-- 02 -->
-                    <img src="images/proyectos/senalizacion.png" alt="Slide 1" class="slider-item"> <!-- 03 -->
-                    <img src="images/proyectos/agrinapsis.png" alt="Slide 2" class="slider-item"> <!-- 04 -->
-                    <img src="images/proyectos/bekas.png" alt="Slide 3" class="slider-item"> <!-- 05 -->
-                    <img src="images/proyectos/espigadora.png" alt="Slide 4" class="slider-item"> <!-- 05 -->
-                    <img src="images/proyectos/ictechs.png" alt="Slide 5" class="slider-item"> <!-- 05 -->
-                    <img src="images/proyectos/lata16.png" alt="Slide 6" class="slider-item"> <!-- 05 -->
-                    <img src="images/proyectos/llevame.png" alt="Slide 7" class="slider-item"> <!-- 05 -->
-                    <img src="images/proyectos/mathewpallatino.png" alt="Slide 8" class="slider-item"> <!-- 05 -->
-                    <img src="images/proyectos/mercado.png" alt="Slide 9" class="slider-item"> <!-- 05 -->
-                    <img src="images/proyectos/mna.png" alt="Slide 10" class="slider-item"> <!-- 05 -->
-                    <img src="images/proyectos/soydigital.png" alt="Slide 11" class="slider-item"> <!-- 05 -->
-                    <img src="images/proyectos/surreal.png" alt="Slide 12" class="slider-item"> <!-- 05 -->
-                    <img src="images/proyectos/senalizacion.png" alt="Slide 1" class="slider-item"> <!-- 03 -->
-                    <img src="images/proyectos/agrinapsis.png" alt="Slide 2" class="slider-item"> <!-- 04 -->
-                    <img src="images/proyectos/bekas.png" alt="Slide 3" class="slider-item"> <!-- 05 -->
-                    <img src="images/proyectos/espigadora.png" alt="Slide 4" class="slider-item"> <!-- 05 -->
-                    <img src="images/proyectos/ictechs.png" alt="Slide 5" class="slider-item"> <!-- 05 -->
-                    <img src="images/proyectos/lata16.png" alt="Slide 6" class="slider-item"> <!-- 05 -->
-                    <img src="images/proyectos/llevame.png" alt="Slide 7" class="slider-item"> <!-- 05 -->
-                    <img src="images/proyectos/mathewpallatino.png" alt="Slide 8" class="slider-item"> <!-- 05 -->
-                    <img src="images/proyectos/mercado.png" alt="Slide 9" class="slider-item"> <!-- 05 -->
-                    <img src="images/proyectos/mna.png" alt="Slide 10" class="slider-item"> <!-- 05 -->
-                    <img src="images/proyectos/soydigital.png" alt="Slide 11" class="slider-item"> <!-- 05 -->
-                    <img src="images/proyectos/surreal.png" alt="Slide 12" class="slider-item"> <!-- 05 -->
+                    <figure class="slider-item" data-project="proj-1"><img src="images/proyectos/senalizacion.png" alt="Slide 1"></figure>
+                    <figure class="slider-item" data-project="proj-2"><img src="images/proyectos/agrinapsis.png" alt="Slide 2"></figure>
+                    <figure class="slider-item"><img src="images/proyectos/bekas.png" alt="Slide 3"></figure>
+                    <figure class="slider-item"><img src="images/proyectos/espigadora.png" alt="Slide 4"></figure>
+                    <figure class="slider-item"><img src="images/proyectos/ictechs.png" alt="Slide 5"></figure>
+                    <figure class="slider-item"><img src="images/proyectos/lata16.png" alt="Slide 6"></figure>
+                    <figure class="slider-item"><img src="images/proyectos/llevame.png" alt="Slide 7"></figure>
+                    <figure class="slider-item"><img src="images/proyectos/mathewpallatino.png" alt="Slide 8"></figure>
+                    <figure class="slider-item"><img src="images/proyectos/mercado.png" alt="Slide 9"></figure>
+                    <figure class="slider-item"><img src="images/proyectos/mna.png" alt="Slide 10"></figure>
+                    <figure class="slider-item"><img src="images/proyectos/soydigital.png" alt="Slide 11"></figure>
+                    <figure class="slider-item"><img src="images/proyectos/surreal.png" alt="Slide 12"></figure>
+                    <figure class="slider-item"><img src="images/proyectos/senalizacion.png" alt="Slide 1"></figure>
+                    <figure class="slider-item"><img src="images/proyectos/agrinapsis.png" alt="Slide 2"></figure>
+                    <figure class="slider-item"><img src="images/proyectos/bekas.png" alt="Slide 3"></figure>
+                    <figure class="slider-item"><img src="images/proyectos/espigadora.png" alt="Slide 4"></figure>
+                    <figure class="slider-item"><img src="images/proyectos/ictechs.png" alt="Slide 5"></figure>
+                    <figure class="slider-item"><img src="images/proyectos/lata16.png" alt="Slide 6"></figure>
+                    <figure class="slider-item"><img src="images/proyectos/llevame.png" alt="Slide 7"></figure>
+                    <figure class="slider-item"><img src="images/proyectos/mathewpallatino.png" alt="Slide 8"></figure>
+                    <figure class="slider-item"><img src="images/proyectos/mercado.png" alt="Slide 9"></figure>
+                    <figure class="slider-item"><img src="images/proyectos/mna.png" alt="Slide 10"></figure>
+                    <figure class="slider-item"><img src="images/proyectos/soydigital.png" alt="Slide 11"></figure>
+                    <figure class="slider-item"><img src="images/proyectos/surreal.png" alt="Slide 12"></figure>
 
                     <!-- …repite según necesidad… --> <!-- 06 -->
                 </div> <!-- 07 -->
