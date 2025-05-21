@@ -3,7 +3,7 @@
     "id": "proj-1",
     "title": "SISTEMA DE SEÑALIZACIÓN VIAL",
     "client": "Gobierno Autónomo Municipal de La Paz - Bolivia",
-    "description": "<p>Este trabajo se realiz[o con un grupo de dise;adores liderados por Fernando Navia Meyer</p><p> Mi trabajo consistió en la generación de los pictogramas para el sistema de señalización, los elementos icónicos y la diagramación de cada una de las más de 300 señales generadas para el gobierno municipal.</p><p>Se consideró la abstracción y la síntesis de la forma, preservando características figurativas para lograr un lenguaje visual reconocido por la cultura paceña.</p>",
+    "description": "<p>Este trabajo se realiz[o con un grupo de diseñadores liderados por Fernando Navia Meyer.</p><p> Mi trabajo consistió en la generación de los pictogramas para el sistema de señalización, los elementos icónicos y la diagramación de cada una de las más de 300 señales generadas para el gobierno municipal.</p><p>Se consideró la abstracción y la síntesis de la forma, preservando características figurativas para lograr un lenguaje visual reconocido por la cultura paceña.</p>",
     "images": [
       "../images/proyectos/senalizacion/01.png",
       "../images/proyectos/senalizacion/02.png",
@@ -12,7 +12,8 @@
   },
   {
     "id": "proj-2",
-    "title": "Nombre del Proyecto 2",
+    "title": "AGRINAPSIS",
+    "client": "IICA",
     "description": "Otra descripción…",
     "images": [
       "images/proj2-1.jpg",

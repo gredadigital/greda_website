@@ -89,31 +89,35 @@ function initParallax() {
         });
     });
 
-    // Eyes animation in angel-rubi
+    // Eyes animation in .angel-rubi
     const angSec = document.querySelector('.angel-rubi');
     const eyesClosed = angSec.querySelector('.ojos_entrecerrados');
     const eyesOpen = angSec.querySelector('.ojos_abiertos');
-    ScrollTrigger.create({
-        trigger: angSec,
-        start: 'top top',
-        end: 'bottom top',
-        scrub: true,
-        onUpdate(self) {
-            const p = self.progress;
-            if (p < 0.25) {
-                eyesClosed.style.opacity = '0';
-                eyesOpen.style.opacity = '0';
-            } else if (p < 0.5) {
-                eyesClosed.style.opacity = '1';
-                eyesOpen.style.opacity = '0';
-            } else {
-                eyesClosed.style.opacity = '0';
-                eyesOpen.style.opacity = '1';
+    if (angSec && eyesClosed && eyesOpen) {
+        eyesClosed.style.opacity = '0';
+        eyesOpen.style.opacity = '0';
+        ScrollTrigger.create({
+            trigger: angSec,
+            start: 'top top',
+            end: 'bottom top',
+            scrub: true,
+            onUpdate(self) {
+                const p = self.progress;
+                if (p < 0.02) {
+                    eyesClosed.style.opacity = '0';
+                    eyesOpen.style.opacity = '0';
+                } else if (p < 0.05) {
+                    eyesClosed.style.opacity = '1';
+                    eyesOpen.style.opacity = '0';
+                } else {
+                    eyesClosed.style.opacity = '0';
+                    eyesOpen.style.opacity = '1';
+                }
             }
-        }
-    });
+        });
+    }
 
-    // Slider scroll-on-hover
+    // Slider scroll-on-hover (straight)
     const slider = document.querySelector('.angel-rubi .image-slider');
     if (slider) {
         let dir = 0, raf;
@@ -145,6 +149,7 @@ function initParallax() {
     const detailEl = document.getElementById('project-detail');
     if (!detailEl) return;
     const titleEl = detailEl.querySelector('.detail-title');
+    const clientEl = detailEl.querySelector('.detail_client');
     const descEl = detailEl.querySelector('.detail-description');
     const imgsEl = detailEl.querySelector('.detail-images');
     const closeBtn = detailEl.querySelector('.detail-close');
@@ -163,8 +168,11 @@ function initParallax() {
 
                     // Populate detail
                     titleEl.textContent = project.title;
+                    clientEl.textContent = project.client;
                     descEl.innerHTML = project.description;
-                    imgsEl.innerHTML = project.images.map(src => `<img src="${src}" alt="" style="max-width:100%;margin-bottom:1rem;display:block;">`).join('');
+                    imgsEl.innerHTML = project.images
+                        .map(src => `<img src="${src}" alt="" style="max-width:100%;margin-bottom:1rem;display:block;">`)
+                        .join('');
 
                     // Show detail panel
                     detailEl.classList.add('visible');
@@ -173,7 +181,7 @@ function initParallax() {
                     // Animate FLIP after layout update
                     requestAnimationFrame(() => {
                         Flip.from(state, {
-                            duration: 0.6,
+                            duration: 2,
                             ease: 'power2.inOut',
                             absolute: true
                         });
